@@ -1,4 +1,5 @@
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import pandas as pd
 
 def convert_categorical_to_numerical(df, columns, method="label_encoding"):
     """
