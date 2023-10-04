@@ -5,6 +5,8 @@ from utilities.missing_value_handler import handle_missing_values
 from utilities.categorical_to_numerical import convert_categorical_to_numerical
 from templates.histogram_plotter import plot_histogram
 from templates.scatter_plot_regression import plot_scatter_with_regression
+from templates.box_plotter import plot_box
+from templates.heatmap_plotter import plot_heatmap
 # Import other visualization templates as needed
 
 def main():
@@ -24,6 +26,8 @@ def main():
     print("Select a visualization type:")
     print("1. Histogram")
     print("2. Scatter Plot")
+    print("3: Box Plot")
+    print("4: Heatmap")
     # Ad more options as per templates
     viz_type = input()
 
@@ -42,6 +46,19 @@ def main():
         xlabel = input("Enter the xlabel for the scatter plot: ")
         ylabel = input("Enter the ylabel for the scatter plot: ")
         plot_scatter(data, x_column, y_column, title=title, xlabel=xlabel, ylabel=ylabel)
+    elif viz_type == "3":
+        # User inputs for box plot
+        column = input("Enter the column name for the box plot: ")
+        title = input("Enter the title for the box plot: ")
+        ylabel = input("Enter the ylabel for the box plot: ")
+        plot_box(data, column, title=title, ylabel=ylabel)
+    
+    elif viz_type == "4":
+        # User inputs for heatmap
+        columns = input("Enter the column names for the heatmap (comma-separated): ")
+        title = input("Enter the title for the heatmap: ")
+        columns = columns.split(',')
+        plot_heatmap(data, columns, title=title)
     # Additional visualization options should be added similarly
 
     # 3. Display/Export Visualization
