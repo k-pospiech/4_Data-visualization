@@ -7,6 +7,8 @@ from templates.histogram_plotter import plot_histogram
 from templates.scatter_plot_regression import plot_scatter_with_regression
 from templates.box_plotter import plot_box
 from templates.heatmap_plotter import plot_heatmap
+from templates.pie_chart_plotter import plot_pie_chart 
+from templates.correlation_matrix_plotter import plot_corr_matrix
 # Import other visualization templates as needed
 
 def main():
@@ -28,6 +30,8 @@ def main():
     print("2. Scatter Plot")
     print("3: Box Plot")
     print("4: Heatmap")
+    print("5: Pie Chart")
+    print("6: Correlation Matrix")
     # Ad more options as per templates
     viz_type = input()
 
@@ -59,6 +63,15 @@ def main():
         title = input("Enter the title for the heatmap: ")
         columns = columns.split(',')
         plot_heatmap(data, columns, title=title)
+
+    elif viz_type == "5":
+        column = input("Enter the column name for the pie chart: ")
+        title = input("Enter the title for the pie chart: ")
+        plot_pie_chart(data, column, title=title)
+    
+    elif viz_type == "6":
+        title = input("Enter the title for the correlation matrix: ")
+        plot_corr_matrix(data, title=title)
     # Additional visualization options should be added similarly
 
     # 3. Display/Export Visualization
